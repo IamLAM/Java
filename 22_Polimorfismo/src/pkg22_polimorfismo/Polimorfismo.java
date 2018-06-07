@@ -24,6 +24,18 @@ public class Polimorfismo {
        Gerente g=new Gerente("Mario",5000,"Tuberias");
         
         System.out.println("Resultado"+g.obtenerDetalles());
+        
+        
+        desplegarDetalles(em);     
+        desplegarDetalles(g);
+        
     }
+    
+    //Aplicamos polimorfismo
+    public static void desplegarDetalles(Empleado emp){
+    
+    System.out.println("Resultado"+emp.obtenerDetalles());
+    }
+    
     
 }

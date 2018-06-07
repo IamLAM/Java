@@ -19,7 +19,7 @@ public class Gerente extends Empleado {
 
         this.departamento = departamento;
     }
-
+ //Aplicamos polimorfismo
     public String obtenerDetalles() {
 
         return super.obtenerDetalles() + "departamento :" + departamento;
