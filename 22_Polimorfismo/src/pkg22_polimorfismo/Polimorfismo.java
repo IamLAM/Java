@@ -16,6 +16,14 @@ public class Polimorfismo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Empleado em=new Empleado("Luigi",3000);
+        
+       System.out.println("Resultado"+em.obtenerDetalles());
+       
+       Gerente g=new Gerente("Mario",5000,"Tuberias");
+        
+        System.out.println("Resultado"+g.obtenerDetalles());
     }
     
 }
