@@ -20,7 +20,7 @@ public class Archivos {
         try {
             PrintWriter salida = new PrintWriter(new FileWriter(archivo));
             salida.close();
-            System.out.println("El archivo se ha creado correctamente");
+            System.out.println("[CrearArchivo]El archivo se ha creado correctamente\n");
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -34,9 +34,9 @@ public class Archivos {
 
         try {
             PrintWriter salida = new PrintWriter(new FileWriter(archivo));
-            String insertar = "Esta informacion se almacenra en el archivo";
+            String insertar = "[EscribirArchivo]Esta informacion se almacena en el archivo\n";
             salida.println(insertar);
-            salida.println("--------");
+            salida.println("--------\n");
             salida.close();
         } catch (IOException ioe) {
 
@@ -53,7 +53,7 @@ public class Archivos {
             lee = leer.readLine();
 
             while (lee != null) {
-                System.out.println("contenido: " + lee);
+                System.out.println("[LeerArchivo]contenido: " + lee+"\n");
                 lee = leer.readLine();
             }
             leer.close();
@@ -69,9 +69,9 @@ public class Archivos {
         String insertar;
         try {
             PrintWriter salida = new PrintWriter(new FileWriter(archivo, true));
-            insertar = "Esta informacion se almacenra en el archivo";
+            insertar = "[AdjuntarArchivo]Esta informacion se almacenra en el archivo\n";
             salida.println(insertar);
-            salida.println("--------");
+            salida.println("--------\n");
             salida.close();
 
         } catch (IOException ioe) {
