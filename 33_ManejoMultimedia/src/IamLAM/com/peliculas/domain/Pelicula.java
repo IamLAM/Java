@@ -33,7 +33,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Nombre Pelicula: " + this.nombre;
+        return  this.nombre;
 
     }
 
