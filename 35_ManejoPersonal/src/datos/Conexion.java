@@ -14,7 +14,7 @@ import java.sql.*;
 public class Conexion {
 
     private static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static String JDBC_URL = "jdbc:mysql://localhost/sqa?useSSL=false";
+    private static String JDBC_URL = "jdbc:mysql://localhost/bancos?useSSL=false";
     private static String JDBC_PASS = "";
     private static String JDBC_USER = "root";
     private static Driver driver = null;
