@@ -45,5 +45,31 @@ public class TrabajadorJDBC {
         }
         return rows;
     }
+    
+    public int update(String n,String d,String c){
+     Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int rows = 0, index;
+        try {
+            index = 1;
+            con = Conexion.getConnection();
+            ps = con.prepareStatement(SQL_UPDATE);
+            ps.setString(index++, n);
+            ps.setString(index++, d);
+            ps.setString(index++, c);
+            System.out.println("Query Execution!!" + SQL_UPDATE);
+            rows = ps.executeUpdate();
+            System.out.println("Registers actualizados!!" + rows);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+
+            Conexion.close(ps);
+            Conexion.close(con);
+        }
+        return rows;
+    
+    }
 
 }
