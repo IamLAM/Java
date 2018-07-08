@@ -72,4 +72,29 @@ public class TrabajadorJDBC {
     
     }
 
+    
+     public int delete(String n){
+     Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int rows = 0, index;
+        try {
+            index = 1;
+            con = Conexion.getConnection();
+            ps = con.prepareStatement(SQL_DELETE);
+            ps.setString(1, n);
+            System.out.println("Query Execution!!" + SQL_DELETE);
+            rows = ps.executeUpdate();
+            System.out.println("Registers borrados!!" + rows);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+
+            Conexion.close(ps);
+            Conexion.close(con);
+        }
+        return rows;
+    
+    }
+    
 }
