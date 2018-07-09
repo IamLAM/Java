@@ -16,12 +16,12 @@ import java.util.*;
 public class TrabajadorJDBC {
 
     //? valores a sustituir
-    private final String SQL_INSERT = "INSERT INTO cliente (nombre, direccion,ciudad) VALUES (?,?,?)";
-    private final String SQL_UPDATE = "UPDATE cliente SET nombre=?,direccion=? WHERE nombre=?";
-    private final String SQL_DELETE = "DELETE cliente WHERE nombre=?";
-    private final String SQL_SELECT = "SELECT nombre,direccion,ciudad FROM cliente ORDER BY nombre";
+    private final String SQL_INSERT = "INSERT INTO personal (nombre, apellido,ciudad) VALUES (?,?,?)";
+    private final String SQL_UPDATE = "UPDATE personal SET nombre=?,apellido=?,ciudad=? WHERE id=?";
+    private final String SQL_DELETE = "DELETE personal WHERE id=?";
+    private final String SQL_SELECT = "SELECT nombre,apellido,ciudad FROM personal ORDER BY nombre";
 
-    public int insert(String n, String d, String c) {
+    public int insert(String n, String a, String c) {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -31,7 +31,7 @@ public class TrabajadorJDBC {
             con = Conexion.getConnection();
             ps = con.prepareStatement(SQL_INSERT);
             ps.setString(index++, n);
-            ps.setString(index++, d);
+            ps.setString(index++, a);
             ps.setString(index++, c);
             System.out.println("Query Execution!!" + SQL_INSERT);
             rows = ps.executeUpdate();
@@ -45,9 +45,9 @@ public class TrabajadorJDBC {
         }
         return rows;
     }
-    
-    public int update(String n,String d,String c){
-     Connection con = null;
+
+    public int update(int id, String n, String a, String c) {
+        Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         int rows = 0, index;
@@ -56,8 +56,9 @@ public class TrabajadorJDBC {
             con = Conexion.getConnection();
             ps = con.prepareStatement(SQL_UPDATE);
             ps.setString(index++, n);
-            ps.setString(index++, d);
+            ps.setString(index++, a);
             ps.setString(index++, c);
+            ps.setInt(index, id);
             System.out.println("Query Execution!!" + SQL_UPDATE);
             rows = ps.executeUpdate();
             System.out.println("Registers actualizados!!" + rows);
@@ -69,12 +70,11 @@ public class TrabajadorJDBC {
             Conexion.close(con);
         }
         return rows;
-    
+
     }
 
-    
-     public int delete(String n){
-     Connection con = null;
+    public int delete(int id) {
+        Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         int rows = 0, index;
@@ -82,7 +82,7 @@ public class TrabajadorJDBC {
             index = 1;
             con = Conexion.getConnection();
             ps = con.prepareStatement(SQL_DELETE);
-            ps.setString(1, n);
+            ps.setInt(1, id);
             System.out.println("Query Execution!!" + SQL_DELETE);
             rows = ps.executeUpdate();
             System.out.println("Registers borrados!!" + rows);
@@ -94,7 +94,44 @@ public class TrabajadorJDBC {
             Conexion.close(con);
         }
         return rows;
-    
+
     }
-    
+
+    public List<Trabajador> select() {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Trabajador trabajador = null;
+        List<Trabajador> trabajadores = new ArrayList<Trabajador>();
+
+        try {
+            con = Conexion.getConnection();
+            ps = con.prepareStatement(SQL_SELECT);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String n = rs.getString(2);
+                String d = rs.getString(3);
+                String c = rs.getString(4);
+                trabajador = new Trabajador();
+                trabajador.setNombre(n);
+                trabajador.setApellido(d);
+                trabajador.setIdTrabajador(id);
+                trabajadores.add(trabajador);
+
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+
+        } finally {
+
+            Conexion.close(ps);
+            Conexion.close(con);
+            Conexion.close(rs);
+        }
+        return trabajadores;
+    }
+
 }

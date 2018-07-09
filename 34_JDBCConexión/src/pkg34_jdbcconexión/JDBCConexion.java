@@ -22,19 +22,20 @@ public class JDBCConexion {
         // TODO code application logic here
 
         //realizamos conexion mediante el controlador
-        String ruta = "jdbc:mysql://localhost:3306/bancos?useSSL=false";
+        String ruta = "jdbc:mysql://localhost:3306/escuela?useSSL=false";
         try {
             Class.forName("com.mysql.jdbc.Driver"); // validamos si existe en cache (solo versiones anteriores:opcional)
             Connection conexion = (Connection) DriverManager.getConnection(ruta, "root", "");
 
             Statement instruccion = conexion.createStatement();
 
-            String sql = "SELECT * FROM cliente";
+            String sql = "SELECT * FROM personal";
             ResultSet result = instruccion.executeQuery(sql);
             while (result.next()) {
-                System.out.print("Nombre:" + result.getString(1));
-                System.out.print(" Direccion:" + result.getString(2));
-                System.out.println(" Ciudad:" + result.getString(3));
+                System.out.print("id:" + result.getString(1));
+                System.out.print("Nombre:" + result.getString(2));
+                System.out.print("Apellido:" + result.getString(3));
+                System.out.println("Ciudad:" + result.getString(4));
             }
 
             result.close();
