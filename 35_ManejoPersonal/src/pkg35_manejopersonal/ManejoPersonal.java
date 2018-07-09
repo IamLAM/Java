@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package pkg35_manejopersonal;
+import datos.TrabajadorJDBC;
+import domain.Trabajador;
+import java.util.List;
 
 /**
  *
@@ -16,6 +19,11 @@ public class ManejoPersonal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        TrabajadorJDBC trabajador=new TrabajadorJDBC();
+        trabajador.insert("Pilar","Sanchez","Tabasco");
+        
+        
     }
     
 }

@@ -14,9 +14,10 @@ import java.sql.*;
 public class Conexion {
 
     private static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static String JDBC_URL = "jdbc:mysql://localhost/bancos?useSSL=false";
-    private static String JDBC_PASS = "";
+    private static String JDBC_URL = "jdbc:mysql://localhost:3306/escuela?useSSL=false";
+
     private static String JDBC_USER = "root";
+    private static String JDBC_PASS = "";
     private static Driver driver = null;
 
     public static synchronized Connection getConnection() throws SQLException {
@@ -27,14 +28,14 @@ public class Conexion {
 
                 Class jdbcDriverClass = Class.forName(JDBC_DRIVER);
                 driver = (Driver) jdbcDriverClass.newInstance();
-                DriverManager.deregisterDriver(driver);
+                DriverManager.registerDriver(driver);
             } catch (Exception e) {
                 System.out.println("Fallo la carga del driver JDBC");
                 e.printStackTrace();
             }
         }
 
-        return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_URL);
+        return DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
     }
 
     public static void close(ResultSet rs) {
