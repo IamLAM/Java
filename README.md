@@ -12,7 +12,7 @@ _Este es un curso de programación en JAVA,que contempla desde aspectos básicos
 * [Netbeans](https://netbeans.org/) - Software a utilizar
 
 
-### Temario
+### Temario :rocket:
 1. Variables
 2. Operadores lógicos, aritméticos y relacionales
 3. Secuencias de Control
