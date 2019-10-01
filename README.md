@@ -1,4 +1,4 @@
-# Aprendiendo a programación con JAVA :sunglasses: :coffee:
+# Aprendiendo programación con JAVA :sunglasses: :coffee:
 
 _Autor: Luis Angel Monge_
 profesor@luismonge.com.mx
