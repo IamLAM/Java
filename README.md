@@ -1,6 +1,16 @@
-<h1>Java: Ejercicios demostrativos</h1>
-<hr>
-<p>La lista de ejercicios almacenada en este repositorio, ayudará en el aprendizaje por medio de pequeños códigos 
-funcionales </p>
+# Aprendiendo a programación con JAVA :sunglasses: :coffee:
 
-<p>Cada ejercicio fue desarrollado con el apoyo de Netbeans 8.2</p>
+_Autor: Luis Angel Monge_
+profesor@luismonge.com.mx
+
+## Descripción
+
+_Este es un curso de programación en JAVA,que contempla desde aspectos básicos como la declaración de variables hasta el manejo de transacciones _
+
+### Pre-requisitos :white_check_mark:
+
+* [Netbeans](https://netbeans.org/) - Software a utilizar
+
+
+### Temario
+
