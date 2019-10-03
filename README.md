@@ -1,6 +1,6 @@
 # Aprendiendo programación con JAVA :sunglasses: :coffee:
 
-_Autor: Luis Angel Monge_
+_Profesor: Luis Angel Monge_
 profesor@luismonge.com.mx
 
 ## Descripción
